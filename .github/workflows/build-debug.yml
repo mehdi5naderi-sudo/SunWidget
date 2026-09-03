@@ -34,7 +34,7 @@ jobs:
       - name: Run Gradle build (uses Gradle Action)
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assembleDebug --no-daemon -Porg.gradle.jvmargs="-Xmx2g"
+          arguments: -b build.gradle assembleDebug --no-daemon -Porg.gradle.jvmargs="-Xmx2g"
 
       - name: Ensure APK exists
         run: |
