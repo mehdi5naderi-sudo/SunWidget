@@ -22,14 +22,27 @@ jobs:
           distribution: temurin
           java-version: '11'
 
+      - name: Set up Gradle cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Grant execute for gradlew
         run: chmod +x ./gradlew || true
 
-      - name: Build debug APK
+      - name: Build debug APK (using Gradle wrapper if present)
         run: |
-          ./gradlew assembleDebug
-        env:
-          JAVA_TOOL_OPTIONS: "-Xmx2g"
+          if [ -f ./gradlew ]; then
+            ./gradlew assembleDebug --no-daemon -Porg.gradle.jvmargs="-Xmx2g"
+          else
+            echo "No gradlew found, using gradle from actions/setup-java"
+            gradle assembleDebug --no-daemon -Porg.gradle.jvmargs="-Xmx2g"
+          fi
 
       - name: Create GitHub Release
         id: create_release
