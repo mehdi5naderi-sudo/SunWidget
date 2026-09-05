@@ -11,17 +11,11 @@ android {
         applicationId 'com.mehdi.sunwidget'
         minSdk 23
         targetSdk 35
-        versionCode (project.findProperty('versionCode') ?: '1').toInteger()
-        versionName project.findProperty('versionName') ?: '1.0'
+        versionCode (project.findProperty('versionCode') ?: '1').toString().toInteger()
+        versionName (project.findProperty('versionName') ?: '1.0').toString()
     }
 
-    buildTypes {
-        debug { }
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    kotlinOptions {
+        jvmTarget = '17'
     }
-
-    kotlinOptions { jvmTarget = '17' }
 }
