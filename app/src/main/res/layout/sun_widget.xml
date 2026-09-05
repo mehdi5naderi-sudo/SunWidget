@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="8dp"
     android:gravity="center"
     android:background="@drawable/widget_bg">
 
@@ -13,14 +13,14 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scaleType="centerCrop"
-        android:contentDescription="وضعیت خورشید" />
+        android:contentDescription="نمایش مسیر خورشید" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:paddingTop="5dp">
+        android:paddingTop="3dp">
         <TextView
             android:id="@+id/sunrise_text"
             android:layout_width="0dp"
@@ -28,8 +28,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="☀  --:--"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13sp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/sunset_text"
@@ -37,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="◐  --:--"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:text="☾  --:--"
+            android:textColor="#FFFFFFFF"
+            android:textSize="13sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="در حال دریافت..."
-        android:textColor="#E6FFFFFF"
-        android:textSize="10sp"
+        android:textColor="#DFFFFFFF"
+        android:textSize="9sp"
         android:alpha="0.9" />
 </LinearLayout>
